@@ -11,10 +11,10 @@ export const withAuth = (WrappedComponent: React.ComponentType, {roles = []} : W
         const user = sessionStorage.getItem('user');
 
         if(!user){
-            navigate('/login');
+           return  <Navigate to='/login' replace/>
         }
 
-        if(roles && roles.length> 0 && roles.includes('user')){
+        if( roles.length> 0 && roles.includes('user')){
             return <Navigate to='/user' replace/>
         }
 

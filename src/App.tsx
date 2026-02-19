@@ -15,7 +15,7 @@ import { withAuth } from "./hoc/withAuth"
 
 function App() {
 //defining the routes
-const ProtectUserLayout = withAuth(UserLayout, {roles: ['user']});
+//const ProtectUserLayout = withAuth(UserLayout, {roles: ['user']});
   return (
 
    <Routes>
@@ -26,7 +26,7 @@ const ProtectUserLayout = withAuth(UserLayout, {roles: ['user']});
          <Route path='home' element={<Home/>}/>
     </Route>
 
-     <Route path='/user' element={<ProtectUserLayout/>}>
+     <Route path='/user' element={<UserLayout/>}>
       <Route index element={<Home/>}/>
       <Route path='home' element={<Home/>}/>
       <Route path='log' element={<LogPet/>}/>
