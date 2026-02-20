@@ -88,14 +88,7 @@ export const LogPet=(props) => {
   
   return (
 
-     <div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "76vh",        // full screen height
-  }}
->
+  
   <Card style={{ width: '40%' }}>
     <Form {...formItemLayout} onSubmitCapture={handleSubmit}>
     Create Dog
@@ -156,6 +149,6 @@ export const LogPet=(props) => {
       </Form.Item>
     </Form>
     </Card>
-    </div>
+   
   );
 };

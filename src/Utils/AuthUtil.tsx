@@ -97,7 +97,7 @@ users.forEach(user => {
 
   // 3. Return true if found else false
  if(found){
-  sessionStorage.setItem('user','logged');
+  sessionStorage.setItem('user',this._userName);
   return true
  }
 

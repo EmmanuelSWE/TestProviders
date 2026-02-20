@@ -1,7 +1,7 @@
 import { Form, Input ,Button, Card } from 'antd';
 import { useState } from 'react';
 import { User } from '../../Utils/AuthUtil';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Login = () => {
 
@@ -20,14 +20,6 @@ export const Login = () => {
 
      return (
 
- <div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-   height: "76vh",          // full screen height
-  }}
->
   <Card style={{ width: 300 }}>
 
     <Form className="login-form" onSubmitCapture={handleSubmit}>
@@ -52,13 +44,13 @@ export const Login = () => {
           Log in
         </Button>
         <div style={{padding: 10}}>
-            Or <a href="">register now!</a>
+         <Link to='/signup'>   Or register now!</Link>
         </div>
        
       </Form.Item>
     </Form>
   </Card>
-</div>
+
      
     );
 }

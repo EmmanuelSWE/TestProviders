@@ -13,7 +13,7 @@ import {
   Card
 } from 'antd';
 import { IUser, User } from '../../Utils/AuthUtil';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -65,14 +65,7 @@ export const Signup=(props) => {
 
   return (
 
-     <div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "76vh",        // full screen height
-  }}
->
+
   <Card style={{ width: '40%' }}>
     <Form {...formItemLayout} onSubmitCapture={handleSubmit}>
     signup
@@ -115,10 +108,14 @@ export const Signup=(props) => {
         <Button type="primary" htmlType="submit">
           Register
         </Button>
+
+         <div style={{padding: 10}}>
+         <Link to='/login'>   Or log in now!</Link>
+        </div>
       </Form.Item>
     </Form>
     </Card>
-    </div>
+   
   );
 };
 

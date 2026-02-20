@@ -60,14 +60,14 @@ const Pets = () => {
     return (
     <>
       {/* row collumn for the heading*/}
-           <div className='gridContainer' style={{ padding: 30}}>
+           <div className='gridContainer' style={{ width: '80%' ,padding: 0}}>
              <Row className={cx(styles.row, styles.headingRow)}> 
                 <Col span={colSpan.fullSpan}>
-                    Heading
+                    Dog list
                 </Col>
             </Row>
 
-             <Row className={cx(styles.row, styles.firstItemRow)}> 
+           {/*  <Row className={cx(styles.row, styles.firstItemRow)}> 
                 <Col span={colSpan.quarterSpan}>
                     User
                 </Col>
@@ -77,10 +77,11 @@ const Pets = () => {
                  <Col span={colSpan.quarterSpan}>
                     approved?
                 </Col>
-            </Row>
+            </Row> */}
 
-           {pets && pets.length > 0 ? pets.map( pet => (
-              <Row className={cx(styles.row, styles.itemRow)} key={pet.id}> 
+           {pets && pets.length > 0 ? pets.map( (pet,index) => (
+              <Row className={cx(styles.row, pets.length-1 === index ? styles.lastItemRow :
+               index === 0 ? styles.firstItemRow : styles.itemRow)} key={pet.id}> 
                 <Col span={colSpan.quarterSpan}>
                    <Link to={`/user/pet/${pet.id}`}> {pet.name}</Link>
                 </Col>
@@ -88,24 +89,24 @@ const Pets = () => {
                  <Col span={colSpan.quarterSpan}>
                     {pet.date_of_birth.toString()}
                 </Col>
-                 <Col span={colSpan.halfSpan}>
+                 <Col span={colSpan.halfSpan} >
                    <Button onClick={()=>{
                     deletePet(pet.id);
                    
-                   }} danger> Delete</Button>
-                </Col>
+                   }} danger style={{padding : 10}}> Delete</Button>
 
-                 <Col span={colSpan.halfSpan}>
-                   <Button onClick={()=>{
+                    <Button onClick={()=>{
                     navigate(`/user/edit/${pet.id}`);
                     
-                   }} > edit</Button>
+                   }} style={{padding : 10}} > edit</Button>
                 </Col>
+
+                
             </Row>
            )) : null}
 
 
-             <Row className={cx(styles.row, styles.lastItemRow)}> 
+            {/* <Row className={cx(styles.row, styles.lastItemRow)}> 
                 <Col span={colSpan.quarterSpan}>
                     User
                 </Col>
@@ -115,7 +116,7 @@ const Pets = () => {
                  <Col span={colSpan.quarterSpan}>
                     approved?
                 </Col>
-            </Row>
+            </Row> */}
 
            </div>
     </>

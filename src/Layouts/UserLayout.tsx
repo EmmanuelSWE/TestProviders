@@ -1,4 +1,4 @@
-import { Layout , Row, Col, Menu} from 'antd';
+import { Layout , Menu, Flex, Image } from 'antd';
 import {  HeartTwoTone } from '@ant-design/icons';
 import { createStyles, css } from "antd-style";
 
@@ -35,35 +35,56 @@ export const useStyles = createStyles({
     firstItemRow :css `
     border-left: 1px solid black;
     border-right: 1px solid black;  
-    `
+    `,
+    image : css `
+    width: 200px;
+    height: 200px;
+    object-fit: cover; 
+    border-radius: 50%`
 })
 const { Header, Footer, Sider, Content } = Layout;
 const UserLayout = () => {
-  
+   
 
     return (
         <Layout style={{textAlign: 'center'}}>
-      <Header> <Menu
+      <Header> 
+        
+        
+    
+      
+    
+        
+        <Menu
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['2']}
         style={{ lineHeight: '64px' }}
       >
+          <Image src='..\assets\logo.jpg' />
         <Menu.Item key="1"><Link to='log'> Log Pet</Link></Menu.Item>
         <Menu.Item key="2"><Link to='pets'> see pets</Link></Menu.Item>
         <Menu.Item key="3"><Link to='home'> home</Link></Menu.Item>
+        <Menu.Item key="4"><Link to='/login'> Log in</Link></Menu.Item>
+        <Menu.Item key="5"><Link to='/signup'> Sign up</Link></Menu.Item>
+
       </Menu></Header>
       <Layout>
         
-        <Sider style={{backgroundColor: 'pink'}}>
-            {/* nav items*/}
-            <Row justify={'center'} style={{padding: 10}}> <HeartTwoTone /></Row>
-            <Row justify={'center'}  style={{padding: 10}}> Houses</Row>
-            <Row justify={'center'} style={{padding: 10}}> <HeartTwoTone /></Row>
-        </Sider>
+      
+
+        
         <Content>
-            
+                            <div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+   height: "76vh",          // full screen height
+  }}
+>
            <Outlet/>
+           </div>
         </Content>
       </Layout>
       <Footer>

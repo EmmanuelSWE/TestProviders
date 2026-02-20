@@ -38,24 +38,16 @@ const { id } = useParams<{ id: string }>();
     }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh', // or use height: '100%' if html,body,#root are 100%
-        padding: 16,
-        background: '#f5f5f5',
-      }}
-    >
-      <Card title="Edit Pet" style={{ width: 420 }}>
+  
+      <Card title={`Edit Details for`} style={{ width: 420 }}>
        {pet != undefined ? <Form
           layout="vertical"
           form={form}
           onSubmitCapture={handleSubmit}
           initialValues={{ name: '', description: '' }}
         >
-        
+          
+          <h2> {pet.name}</h2>
           <Form.Item
             label="Description"
             name="description"
@@ -74,6 +66,6 @@ const { id } = useParams<{ id: string }>();
           </Form.Item>
         </Form> : null}
       </Card>
-    </div>
+  
   );
 };

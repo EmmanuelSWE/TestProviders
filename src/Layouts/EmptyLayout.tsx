@@ -1,9 +1,10 @@
-import { Layout , Row, Col} from 'antd';
+import { Layout , Menu, Flex, Image} from 'antd';
 import {  HeartTwoTone } from '@ant-design/icons';
 import { createStyles, css } from "antd-style";
 
 import { useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+import { useStyles } from './UserLayout';
 
 //enum for the col span
 export enum colSpan{
@@ -13,43 +14,46 @@ export enum colSpan{
 }
 
 //stylinh stuff making it here for now will seperate to file in stlye branch
-export const useStyles = createStyles({
-    row : css`
-        padding-bottom :  20px;
-        Padding-top: 20px;
-    `,
-    itemRow : css `
-    border-Top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    
-    `,
-    headingRow: css `
-    border: 1px solid black;
-    border-radius: 5px 5px 0px 0px; 
-    `,
-    lastItemRow :css `
-    border: 1px solid black;
-    border-radius:0px 0px 5px 5px ;   
-    `,
-    firstItemRow :css `
-    border-left: 1px solid black;
-    border-right: 1px solid black;  
-    `
-})
+
 const { Header, Footer, Sider, Content } = Layout;
 const EmptyLayout
  = () => {
   
-
+const {styles} = useStyles();
     return (
         <Layout style={{textAlign: 'center'}}>
-      <Header>Wish To Washy</Header>
+      <Header>
+
+    
+
+         <Menu
+        theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={['2']}
+        style={{ lineHeight: '64px' }}
+      >
+        <Image src='..\assets\logo.jpg' />
+            <Menu.Item key="4"><Link to='/login'> Log in</Link></Menu.Item>
+        <Menu.Item key="5"><Link to='/signup'> Sign up</Link></Menu.Item>
+        </Menu>
+      </Header>
+
+
       <Layout>
+  
         <Content>
-            
+                   <div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+   height: "76vh",          // full screen height
+  }}
+>
            <Outlet/>
+           </div>
         </Content>
+        
       </Layout>
       <Footer>
         <div className='creators'>
