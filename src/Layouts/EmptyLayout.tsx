@@ -1,7 +1,7 @@
 import { Layout , Menu, Flex, Image} from 'antd';
 import {  HeartTwoTone } from '@ant-design/icons';
 import { createStyles, css } from "antd-style";
-
+import logo from '../assets/logo.jpg';
 import { useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useStyles } from './UserLayout';
@@ -32,7 +32,9 @@ const {styles} = useStyles();
         defaultSelectedKeys={['2']}
         style={{ lineHeight: '64px' }}
       >
-        <Image src='..\assets\logo.jpg' />
+         <div style={{width : 40, height : 40}}>
+                    <Image src={logo} className={styles.image} />
+                  </div>
             <Menu.Item key="4"><Link to='/login'> Log in</Link></Menu.Item>
         <Menu.Item key="5"><Link to='/signup'> Sign up</Link></Menu.Item>
         </Menu>

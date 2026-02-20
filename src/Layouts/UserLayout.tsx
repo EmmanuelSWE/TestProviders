@@ -1,7 +1,7 @@
 import { Layout , Menu, Flex, Image } from 'antd';
 import {  HeartTwoTone } from '@ant-design/icons';
 import { createStyles, css } from "antd-style";
-
+import logo from '../assets/logo.jpg';
 import { useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
@@ -37,31 +37,28 @@ export const useStyles = createStyles({
     border-right: 1px solid black;  
     `,
     image : css `
-    width: 200px;
-    height: 200px;
-    object-fit: cover; 
+    width: 10px;
+    height: 10px;
+    object-fit: fit; 
     border-radius: 50%`
 })
 const { Header, Footer, Sider, Content } = Layout;
 const UserLayout = () => {
-   
+   const {styles} = useStyles();
 
     return (
         <Layout style={{textAlign: 'center'}}>
       <Header> 
         
-        
-    
-      
-    
-        
         <Menu
         theme="dark"
         mode="horizontal"
-        defaultSelectedKeys={['2']}
+        defaultSelectedKeys={['3']}
         style={{ lineHeight: '64px' }}
       >
-          <Image src='..\assets\logo.jpg' />
+          <div style={{width : 40, height : 40}}>
+            <Image src={logo} className={styles.image} />
+          </div>
         <Menu.Item key="1"><Link to='log'> Log Pet</Link></Menu.Item>
         <Menu.Item key="2"><Link to='pets'> see pets</Link></Menu.Item>
         <Menu.Item key="3"><Link to='home'> home</Link></Menu.Item>
